@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>기술 기반 투자 전략 정리</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121932;
+      --panel-2: #182242;
+      --text: #eef2ff;
+      --muted: #b8c2e0;
+      --line: #2a3768;
+      --accent: #8fb3ff;
+      --accent-2: #b4ffd8;
+      --danger: #ffb4b4;
+      --warn: #ffe3a3;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #0e1530 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .wrap {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 80px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(143,179,255,0.18), rgba(180,255,216,0.08));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .section-group {
+      margin-top: 36px;
+    }
+
+    .group-title {
+      font-size: 26px;
+      margin: 0 0 16px;
+      padding-left: 14px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .card {
+      background: rgba(18, 25, 50, 0.95);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 18px;
+      color: var(--accent-2);
+    }
+
+    p {
+      margin: 8px 0;
+      color: var(--text);
+    }
+
+    ul {
+      margin: 8px 0 8px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin: 6px 0;
+      color: var(--text);
+    }
+
+    .muted { color: var(--muted); }
+    .quote {
+      margin: 14px 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: rgba(143,179,255,0.08);
+      border-radius: 12px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .danger {
+      background: rgba(255, 180, 180, 0.08);
+      border-left-color: var(--danger);
+    }
+
+    .warn {
+      background: rgba(255, 227, 163, 0.08);
+      border-left-color: var(--warn);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .mini {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .mini h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 28px; }
+      .group-title { font-size: 22px; }
+      .card { padding: 18px; }
+      .split { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>기술 기반 투자 전략 정리</h1>
+      <p>위 대화에서 정리된 두 개의 1번~7번 항목을 빠짐없이 한 문서로 정리한 HTML입니다. 첫 번째는 투자 철학과 기본 전략, 두 번째는 자금 배분과 계층형 분할 전략에 대한 정리입니다.</p>
+    </section>
+
+    <section class="section-group">
+      <h2 class="group-title">정리 1. 기술 기반 장기 투자 전략 (1번~7번)</h2>
+
+      <article class="card">
+        <h2>1. 핵심 전제</h2>
+        <p>주가는 단기적인 뉴스나 시장 심리에 의해 움직이는 것처럼 보이지만, 실질적으로는 다음 두 가지 요소에 의해 결정된다.</p>
+        <h3>(1) 산업의 구조적 변화</h3>
+        <ul>
+          <li>특정 산업이 장기적으로 성장하는가</li>
+          <li>사회/기술 패러다임이 바뀌는가</li>
+        </ul>
+        <h3>(2) 기업의 기술적 파괴력 (가장 중요)</h3>
+        <ul>
+          <li>기존 시장을 뒤집을 수 있는 기술인가</li>
+          <li>공급망/인프라를 장악할 수 있는 위치인가</li>
+        </ul>
+        <div class="quote">결론: 주가를 가장 강하게 견인하는 것은 ‘기술 + 산업 흐름’이다.</div>
+      </article>
+
+      <article class="card">
+        <h2>2. 사례: AI → GPU → 엔비디아</h2>
+        <ul>
+          <li>OpenAI 등장 → 생성형 AI 폭발</li>
+          <li>AI 학습 = GPU 대량 필요</li>
+          <li>GPU 공급 핵심 = NVIDIA</li>
+        </ul>
+        <p>결과적으로 이는 단순 뉴스가 아니라 <strong>구조적인 수요 증가</strong>였고, 2~3년 이상 지속되는 상승 트렌드가 형성되었다.</p>
+      </article>
+
+      <article class="card">
+        <h2>3. 투자 철학</h2>
+        <h3>기본 원칙</h3>
+        <ul>
+          <li>뉴스는 결과</li>
+          <li>산업 흐름은 원인</li>
+          <li>기술은 트리거</li>
+        </ul>
+        <div class="quote">“내가 이해한 기술과 산업 흐름을 믿고 기다린다”</div>
+      </article>
+
+      <article class="card">
+        <h2>4. 투자 스타일</h2>
+        <h3>4-1. 저점 매수 (핵심 전략)</h3>
+        <p><strong>조건</strong></p>
+        <ul>
+          <li>성장 동력 명확</li>
+          <li>산업 방향 확실</li>
+          <li>과도한 하락 발생</li>
+        </ul>
+        <p><strong>진입 기준</strong></p>
+        <ul>
+          <li>“더 이상 떨어질 이유가 없어 보이는 구간”</li>
+          <li>바닥에서 횡보(저점 다지기)</li>
+        </ul>
+        <p><strong>행동</strong></p>
+        <ul>
+          <li>강하게 진입 (집중 투자)</li>
+          <li>상승 중간에 절대 흔들리지 않음</li>
+        </ul>
+        <p><strong>청산 기준</strong></p>
+        <ul>
+          <li>상승 동력 둔화</li>
+          <li>산업 기대감 소진</li>
+        </ul>
+
+        <h3>4-2. 눌림목 / 사이클 매수</h3>
+        <p><strong>대상</strong></p>
+        <ul>
+          <li>강한 트렌드 종목 (빅테크, 레버리지 ETF 등)</li>
+        </ul>
+        <p><strong>특징</strong></p>
+        <ul>
+          <li>급등 → 급락 반복</li>
+          <li>변동성 큼</li>
+        </ul>
+        <p><strong>전략</strong></p>
+        <ul>
+          <li>급락 시 분할 매수</li>
+          <li>“이 종목 특유의 사이클 저점” 판단</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>5. 리스크 관리 (핵심 포인트)</h2>
+        <h3>피해야 할 것</h3>
+        <div class="quote danger">1. 뉴스 기반 하락 추격 매수</div>
+        <ul>
+          <li>하루 급락 = 끝이 아님</li>
+          <li>며칠 더 떨어질 가능성 높음</li>
+          <li>중간 반등 = 가짜일 수 있음</li>
+        </ul>
+        <p>결과: 조급 진입 → 조급 손절</p>
+
+        <div class="quote warn">2. 상승 초입에서 망설임</div>
+        <ul>
+          <li>진짜 상승은 초기에 과격하게 움직임</li>
+          <li>30% 상승도 전체 상승의 일부일 수 있음</li>
+        </ul>
+        <div class="quote">핵심: “확신이 있다면 늦지 않게 올라탄다”</div>
+      </article>
+
+      <article class="card">
+        <h2>6. 투자자의 행동 원칙</h2>
+        <h3>반드시 지켜야 할 것</h3>
+        <ul>
+          <li>뉴스에 반응하지 않는다</li>
+          <li>산업 구조를 먼저 본다</li>
+          <li>기술의 파괴력을 분석한다</li>
+          <li>한 번 들어가면 오래 버틴다</li>
+          <li>중간 조정은 무시한다</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>7. 최종 요약</h2>
+        <div class="quote">좋은 종목은 뉴스 때문에 오르는 것이 아니라 오를 수밖에 있어서 뉴스가 따라온다</div>
+        <h3>전략에 대한 냉정한 피드백</h3>
+        <div class="split">
+          <div class="mini">
+            <h4>강점</h4>
+            <ul>
+              <li>본질(기술 + 산업)을 보고 있음</li>
+              <li>장기 트렌드 이해 가능</li>
+              <li>큰 수익 낼 수 있는 구조</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h4>리스크</h4>
+            <ul>
+              <li>“저점 판단”은 거의 불가능한 영역</li>
+              <li>확신이 강할수록 과도한 집중 투자 위험</li>
+              <li>틀렸을 때 대응 전략이 없음</li>
+            </ul>
+          </div>
+        </div>
+        <p>보완 필요: “틀렸을 때 어떻게 나올 것인가” 규칙 추가해야 함</p>
+        <div class="quote">한 줄 결론: 너 전략은 맞다. 근데 완성된 전략이 아니라 아직 ‘절반짜리’다.</div>
+      </article>
+    </section>
+
+    <section class="section-group">
+      <h2 class="group-title">정리 2. 자금 배분과 계층형 분할 전략 (1번~7번)</h2>
+
+      <article class="card">
+        <h2>1. 네 전제의 위험한 지점부터 짚고 가자</h2>
+        <p>강한 기술주들은 결국 방향대로 가는 경우가 많다. 하지만 문제는 다음 한 가지다.</p>
+        <div class="quote danger">“결국 오른다”는 맞아도 “언제, 얼마나 버텨야 하는가”는 완전히 다른 문제다.</div>
+        <ul>
+          <li>-60% 찍고 2년 후 회복 → 맞는 예측이지만 실패한 투자</li>
+          <li>자금 소진 → 추가 기회 없음</li>
+          <li>멘탈 붕괴 → 중간에 털림</li>
+        </ul>
+        <p>따라서 지금 문제는 타이밍이 아니라 <strong>자금 배분 문제</strong>다.</p>
+      </article>
+
+      <article class="card">
+        <h2>2. 두 전략의 본질 비교</h2>
+        <div class="split">
+          <div class="mini">
+            <h4>(A) 계속 물타기 (분할매수)</h4>
+            <p><strong>장점</strong></p>
+            <ul>
+              <li>평균단가 빠르게 낮춤</li>
+              <li>상승 초입 놓치지 않음</li>
+            </ul>
+            <p><strong>치명적 단점</strong></p>
+            <ul>
+              <li>진짜 저점 전에 총알 소진</li>
+              <li>하락 추세에서 계속 맞음</li>
+            </ul>
+            <div class="quote">한 줄: “맞는 방향인데 돈이 먼저 죽는 전략”</div>
+          </div>
+          <div class="mini">
+            <h4>(B) 저점 대기</h4>
+            <p><strong>장점</strong></p>
+            <ul>
+              <li>자금 보존</li>
+              <li>한방 크게 먹을 수 있음</li>
+            </ul>
+            <p><strong>치명적 단점</strong></p>
+            <ul>
+              <li>저점은 지나고 나서만 보인다</li>
+              <li>상승 초입 놓칠 가능성</li>
+            </ul>
+            <div class="quote">한 줄: “안전하지만 기회를 놓칠 수 있는 전략”</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>3. 그래서 필요한게 “계층형 분할 전략”</h2>
+        <p>이 전략은 확신과 공격성을 살리면서 리스크만 줄이는 구조다.</p>
+        <h3>핵심 개념</h3>
+        <div class="quote">“시간 기준 분할”이 아니라 “구간(레벨) 기준 분할”이다.</div>
+      </article>
+
+      <article class="card">
+        <h2>4. 구조 (핵심)</h2>
+        <p><strong>총 투자금 = 100 기준</strong></p>
+        <h3>1) 초기 진입 (확신 구간)</h3>
+        <ul>
+          <li>20~30%</li>
+          <li>“이건 싸다”라고 판단되는 첫 구간</li>
+        </ul>
+        <p>목적: 상승 시작 놓치지 않기</p>
+
+        <h3>2) 하락 지속 (비관 구간)</h3>
+        <ul>
+          <li>30~40%</li>
+          <li>시장이 공포로 과하게 반응할 때</li>
+        </ul>
+        <p>중요 기준: “내 논리가 깨졌는가?”</p>
+        <ul>
+          <li>아니면 → 계속 매수</li>
+          <li>맞으면 → 중단</li>
+        </ul>
+
+        <h3>3) 진짜 기회 구간 (패닉 / 과매도)</h3>
+        <ul>
+          <li>마지막 30~40%</li>
+          <li>대부분 여기서 나옴</li>
+        </ul>
+        <p><strong>특징</strong></p>
+        <ul>
+          <li>뉴스 최악</li>
+          <li>거래량 폭증</li>
+          <li>개인들 포기</li>
+        </ul>
+        <p>이 구간에서 크게 태운다.</p>
+      </article>
+
+      <article class="card">
+        <h2>5. 네 질문에 대한 직접 답</h2>
+        <div class="quote">계속 물타기 → 위험 / 기다리기만 → 비효율 / 정답은 “처음부터 자금을 나눠놓고 계획대로만 들어가라”</div>
+        <p>즉, 계속 물을 타는 방식도 아니고, 무작정 큰 저점만 기다리는 것도 아니다. 계획된 구간별 진입이 핵심이다.</p>
+      </article>
+
+      <article class="card">
+        <h2>6. 실전 판단 기준 (중요)</h2>
+        <div class="split">
+          <div class="mini">
+            <h4>계속 사도 되는 하락</h4>
+            <ul>
+              <li>산업 성장 여전히 유효</li>
+              <li>기업 경쟁력 유지</li>
+              <li>단기 수급 문제</li>
+            </ul>
+            <p>예: AI 과열 조정</p>
+          </div>
+          <div class="mini">
+            <h4>멈춰야 하는 하락</h4>
+            <ul>
+              <li>기술 자체가 흔들림</li>
+              <li>경쟁자가 구조적으로 더 강함</li>
+              <li>산업 방향 바뀜</li>
+            </ul>
+            <p>예: “이건 이제 끝난 트렌드”</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>7. 너 전략에서 반드시 추가해야 하는 것</h2>
+        <p>이 규칙이 없으면 언젠가 크게 맞는다.</p>
+        <h3>반드시 추가</h3>
+        <p><strong>“틀렸을 때 행동 규칙”</strong></p>
+        <ul>
+          <li>-30%에서 재검토</li>
+          <li>논리 깨지면 즉시 중단</li>
+          <li>추가 매수 금지</li>
+        </ul>
+        <div class="quote">진짜 핵심 한 줄: “확신이 있으면 분할로 싸우고, 확신이 깨지면 미련 없이 멈춰라”</div>
+        <div class="quote warn">결론: “맞는 방향 + 잘못된 자금 배분 = 실패”</div>
+      </article>
+    </section>
+
+    <p class="footer">정리 완료. 위 대화에서 요청한 1번부터 7번까지의 두 세트를 빠짐없이 HTML 문서 형태로 구성했습니다.</p>
+  </div>
+</body>
+</html>
