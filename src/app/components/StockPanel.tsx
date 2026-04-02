@@ -82,10 +82,21 @@ function StockView({ data, rsi, macd, onRefresh }: {
 }) {
   const { theme } = useTheme();
   const c = THEME[theme];
-  const q = data.quote;
+  const q = {
+    price: data.quote.price ?? 0,
+    change: data.quote.change ?? 0,
+    changePct: data.quote.changePct ?? 0,
+    high: data.quote.high ?? 0,
+    low: data.quote.low ?? 0,
+    open: data.quote.open ?? 0,
+    prevClose: data.quote.prevClose ?? 0,
+    updatedAt: data.quote.updatedAt ?? 0,
+  };
   const isUp = q.changePct >= 0;
   const priceColor = isUp ? c.green : c.red;
-  const updatedAt = new Date(q.updatedAt * 1000).toLocaleTimeString("ko-KR");
+  const updatedAt = q.updatedAt
+    ? new Date(q.updatedAt * 1000).toLocaleTimeString("ko-KR")
+    : "시간 미확인";
 
   const metricCard = (label: string, value: string) => (
     <div key={label} style={{ background: c.panel2, border: `1px solid ${c.line}`, borderRadius: "10px", padding: "12px" }}>

@@ -73,14 +73,14 @@ export interface StockData {
   industry: string;
   logo: string;
   quote: {
-    price: number;
-    change: number;
-    changePct: number;
-    high: number;
-    low: number;
-    open: number;
-    prevClose: number;
-    updatedAt: number;
+    price: number | null;
+    change: number | null;
+    changePct: number | null;
+    high: number | null;
+    low: number | null;
+    open: number | null;
+    prevClose: number | null;
+    updatedAt: number | null;
   };
   candles: CandlePoint[];
   indicators: IndicatorPoint[];
