@@ -1,3 +1,4 @@
+"use client";
 import {
   SectionLabel,
   GroupHeading,
@@ -11,8 +12,11 @@ import {
   Divider,
   Tag,
 } from "./ui";
+import { useTheme, THEME } from "@/app/context/ThemeContext";
 
 export default function StrategyTab() {
+  const { theme } = useTheme();
+  const c = THEME[theme];
   return (
     <div>
       {/* ── 정리 1 ── */}
@@ -24,7 +28,7 @@ export default function StrategyTab() {
         <BodyText>
           주가가 오르는 날, 사람들은 그날의 뉴스를 이유로 든다. 금리가 어떻다, 실적이 어떻다,
           누군가의 발언이 어땠다고. 하지만 그것은 인과관계가 뒤집힌 설명이다.{" "}
-          <strong className="font-medium" style={{ color: "#c8d4ff" }}>
+          <strong className="font-medium" style={{ color: c.accentText }}>
             뉴스는 주가 변동의 원인이 아니라 변동에 붙는 설명이다.
           </strong>{" "}
           진짜 원인은 이미 그 종목 안에 내재되어 있다.
@@ -36,20 +40,20 @@ export default function StrategyTab() {
         </BodyText>
         <Split2>
           <MiniCard>
-            <p className="text-[12px] font-bold mb-1.5" style={{ color: "#8fb3ff" }}>
+            <p className="text-[12px] font-bold mb-1.5" style={{ color: c.accent }}>
               산업의 구조적 변화
             </p>
-            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: "#8a93b8" }}>
+            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: c.textMuted }}>
               <li>3~5년 시야에서 이 산업이 커지는가</li>
               <li>사회와 기술의 패러다임이 전환 중인가</li>
               <li>수요가 공급을 압도하는 구조인가</li>
             </ul>
           </MiniCard>
           <MiniCard>
-            <p className="text-[12px] font-bold mb-1.5" style={{ color: "#8fb3ff" }}>
+            <p className="text-[12px] font-bold mb-1.5" style={{ color: c.accent }}>
               기업의 기술적 파괴력 ★
             </p>
-            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: "#8a93b8" }}>
+            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: c.textMuted }}>
               <li>이 기업이 없으면 산업이 작동 안 하는가</li>
               <li>공급망·인프라의 핵심 노드를 장악했는가</li>
               <li>경쟁자가 쉽게 따라올 수 없는가</li>
@@ -75,7 +79,7 @@ export default function StrategyTab() {
         <BodyText>
           하루하루 시세를 보면서 흔들리는 건 방향이 없기 때문이다. 방향이 명확하면 오히려
           하락이 반갑다. 더 싸게 살 수 있는 시간이 생기기 때문이다. 이 전략의 핵심은{" "}
-          <strong className="font-medium" style={{ color: "#c8d4ff" }}>
+          <strong className="font-medium" style={{ color: c.accentText }}>
             내가 분석한 논리를 믿고 시장보다 먼저 포지션을 잡는 것
           </strong>
           이다. 시장이 그것을 인식하는 순간, 상승은 저절로 따라온다.
@@ -123,7 +127,7 @@ export default function StrategyTab() {
         <BodyText>
           저점에서 충분히 기다리며 들어갔다면, 올라가는 과정에서의 조정은 당연한 것으로
           받아들인다. 상승 중 -10%, -15% 조정은 차익실현의 신호가 아니다.{" "}
-          <strong className="font-medium" style={{ color: "#c8d4ff" }}>
+          <strong className="font-medium" style={{ color: c.accentText }}>
             상승 동력이 둔화됐는가, 산업의 기대감이 소진됐는가
           </strong>
           를 봐야 한다. 그 전까지는 자리를 지킨다.
@@ -140,7 +144,7 @@ export default function StrategyTab() {
           일부 종목은 장기 우상향을 하면서도 중간에 극도로 격렬한 등락을 반복한다. 빅테크,
           반도체 주요 종목, 레버리지 ETF가 그렇다. 이 종목들은 "저점을 탄탄히 다지는" 형태가
           아니라{" "}
-          <strong className="font-medium" style={{ color: "#c8d4ff" }}>
+          <strong className="font-medium" style={{ color: c.accentText }}>
             급등 후 급락이 짧고 강하게 온다.
           </strong>{" "}
           바닥 구간이 뾰족하고 체류 시간이 짧다.
@@ -220,23 +224,23 @@ export default function StrategyTab() {
       <Card>
         <Split2>
           <MiniCard>
-            <p className="text-[12px] font-bold mb-1.5" style={{ color: "#6ce88a" }}>
+            <p className="text-[12px] font-bold mb-1.5" style={{ color: c.green }}>
               이 전략의 강점
             </p>
-            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: "#8a93b8" }}>
+            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: c.textMuted }}>
               <li>본질(기술+산업)을 보기 때문에 장기 트렌드에 올라탄다</li>
               <li>뉴스에 흔들리지 않으므로 충분한 수익을 끌어낼 수 있다</li>
               <li>저점을 기다리기 때문에 리스크 대비 수익 구조가 유리하다</li>
             </ul>
           </MiniCard>
           <MiniCard>
-            <p className="text-[12px] font-bold mb-1.5" style={{ color: "#ff7b7b" }}>
+            <p className="text-[12px] font-bold mb-1.5" style={{ color: c.red }}>
               반드시 보완해야 할 것
             </p>
-            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: "#8a93b8" }}>
+            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: c.textMuted }}>
               <li>저점 판단은 사후적으로만 확인된다 — 분할 진입이 필수</li>
               <li>확신이 클수록 과집중 투자 위험이 커진다</li>
-              <li style={{ color: "#ffb3b3" }}>
+              <li style={{ color: c.redLight }}>
                 "논리가 깨졌을 때 어떻게 나올 것인가" 규칙이 없으면 전략은 절반짜리다
               </li>
             </ul>
@@ -258,10 +262,10 @@ export default function StrategyTab() {
         </BodyText>
         <Split2>
           <MiniCard>
-            <p className="text-[12px] font-bold mb-1.5" style={{ color: "#8fb3ff" }}>
+            <p className="text-[12px] font-bold mb-1.5" style={{ color: c.accent }}>
               (A) 계속 물타기
             </p>
-            <p className="text-[12px] my-1" style={{ color: "#6ce88a" }}>
+            <p className="text-[12px] my-1" style={{ color: c.green }}>
               장점: 평균단가 하락, 초입 포착
             </p>
             <p className="text-[12px] my-1" style={{ color: "#ff9f9f" }}>
@@ -272,10 +276,10 @@ export default function StrategyTab() {
             </Hl>
           </MiniCard>
           <MiniCard>
-            <p className="text-[12px] font-bold mb-1.5" style={{ color: "#8fb3ff" }}>
+            <p className="text-[12px] font-bold mb-1.5" style={{ color: c.accent }}>
               (B) 저점만 대기
             </p>
-            <p className="text-[12px] my-1" style={{ color: "#6ce88a" }}>
+            <p className="text-[12px] my-1" style={{ color: c.green }}>
               장점: 자금 보존, 한방 크게
             </p>
             <p className="text-[12px] my-1" style={{ color: "#ff9f9f" }}>
@@ -301,7 +305,7 @@ export default function StrategyTab() {
                 <p className="text-[12px] font-medium mb-0.5" style={{ color: row.color }}>
                   {row.label}
                 </p>
-                <p className="text-[12px]" style={{ color: "#5a6490" }}>
+                <p className="text-[12px]" style={{ color: c.textDim }}>
                   {row.desc}
                 </p>
               </div>
@@ -324,28 +328,28 @@ export default function StrategyTab() {
       <Card>
         <Split2>
           <MiniCard>
-            <p className="text-[12px] font-bold mb-1.5" style={{ color: "#6ce88a" }}>
+            <p className="text-[12px] font-bold mb-1.5" style={{ color: c.green }}>
               계속 사도 되는 하락
             </p>
-            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: "#8a93b8" }}>
+            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: c.textMuted }}>
               <li>산업 성장 방향이 바뀌지 않았다</li>
               <li>기업 경쟁력·기술력 그대로다</li>
               <li>단기 수급·차익실현·시장 전체 조정이다</li>
             </ul>
-            <p className="text-[11px] mt-1.5" style={{ color: "#5a6490" }}>
+            <p className="text-[11px] mt-1.5" style={{ color: c.textDim }}>
               예: AI 과열 조정, 금리 이슈로 인한 나스닥 전체 하락
             </p>
           </MiniCard>
           <MiniCard>
-            <p className="text-[12px] font-bold mb-1.5" style={{ color: "#ff7b7b" }}>
+            <p className="text-[12px] font-bold mb-1.5" style={{ color: c.red }}>
               반드시 멈춰야 하는 하락
             </p>
-            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: "#8a93b8" }}>
+            <ul className="list-disc pl-3.5 space-y-1 text-[12px]" style={{ color: c.textMuted }}>
               <li>기술 자체의 유효성이 흔들렸다</li>
               <li>구조적으로 더 강한 경쟁자가 나타났다</li>
               <li>산업의 방향 자체가 바뀌고 있다</li>
             </ul>
-            <p className="text-[11px] mt-1.5" style={{ color: "#5a6490" }}>
+            <p className="text-[11px] mt-1.5" style={{ color: c.textDim }}>
               예: 기반 기술이 대체됨, 핵심 수요가 구조적으로 감소
             </p>
           </MiniCard>

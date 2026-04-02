@@ -1,0 +1,78 @@
+### Investment Dashboard — API Test
+### VS Code REST Client 확장 필요 (humao.rest-client)
+
+@baseUrl = http://localhost:3000
+@finnhubKey = YOUR_FINNHUB_KEY
+@twelveKey  = YOUR_TWELVEDATA_KEY
+@symbol = NVDA
+
+# ─────────────────────────────────────────
+# 1. 앱 통합 API
+# ─────────────────────────────────────────
+
+### NVDA — candles.length 로 소스 확인
+GET {{baseUrl}}/api/stock/{{symbol}}
+Accept: application/json
+
+###
+
+### TSLA
+GET {{baseUrl}}/api/stock/TSLA
+
+###
+
+### TQQQ
+GET {{baseUrl}}/api/stock/TQQQ
+
+
+# ─────────────────────────────────────────
+# 2. Finnhub 직접 — 현재가·뉴스 (무료 가능)
+# ─────────────────────────────────────────
+
+### 2-1. 현재가 ✅ 무료 가능
+GET https://finnhub.io/api/v1/quote?symbol={{symbol}}&token={{finnhubKey}}
+
+###
+
+### 2-2. 캔들 ❌ 무료 불가 → s: "no_data" 확인용
+GET https://finnhub.io/api/v1/stock/candle?symbol={{symbol}}&resolution=D&from=1722470400&to=1775103324&token={{finnhubKey}}
+
+###
+
+### 2-3. 회사 프로필 ✅
+GET https://finnhub.io/api/v1/stock/profile2?symbol={{symbol}}&token={{finnhubKey}}
+
+###
+
+### 2-4. 뉴스 ✅
+GET https://finnhub.io/api/v1/company-news?symbol={{symbol}}&from=2025-03-26&to=2026-04-02&token={{finnhubKey}}
+
+
+# ─────────────────────────────────────────
+# 3. Twelve Data — 캔들 차트용 (무료 가능)
+#    https://twelvedata.com 에서 무료 키 발급
+# ─────────────────────────────────────────
+
+### 3-1. 일봉 100일 ✅ 무료 800 calls/day
+GET https://api.twelvedata.com/time_series?symbol={{symbol}}&interval=1day&outputsize=100&apikey={{twelveKey}}
+
+###
+
+### 3-2. 사용량 확인
+GET https://api.twelvedata.com/api_usage?apikey={{twelveKey}}
+
+
+# ─────────────────────────────────────────
+# 진단 체크리스트
+# ─────────────────────────────────────────
+# [앱 API 응답]
+#   candles.length > 0  → 차트 표시됨
+#   candles.length = 0  → Twelve Data 키 미설정 or 두 소스 모두 실패
+#
+# [Finnhub 캔들]
+#   "s": "no_data"      → 무료 플랜 제한 (정상, 예상된 결과)
+#   "s": "ok"           → 유료 플랜 or 권한 있음
+#
+# [Twelve Data]
+#   "status": "ok"      → 키 정상, 데이터 수신
+#   "status": "error"   → 키 오류 or 한도 초과
