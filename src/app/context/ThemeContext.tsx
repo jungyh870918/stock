@@ -2,21 +2,48 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 export type Theme = "dark" | "light";
-interface ThemeCtx { theme: Theme; toggle: () => void; }
-const Ctx = createContext<ThemeCtx>({ theme: "dark", toggle: () => {} });
+export type Lang = "ko" | "en";
+
+interface ThemeCtx {
+  theme: Theme;
+  lang: Lang;
+  toggleTheme: () => void;
+  toggleLang: () => void;
+}
+
+const Ctx = createContext<ThemeCtx>({
+  theme: "dark", lang: "ko",
+  toggleTheme: () => {}, toggleLang: () => {},
+});
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
+  const [lang, setLang]   = useState<Lang>("ko");
+
   useEffect(() => {
-    const s = localStorage.getItem("theme") as Theme | null;
-    if (s) setTheme(s);
+    const t = localStorage.getItem("theme") as Theme | null;
+    const l = localStorage.getItem("lang")  as Lang  | null;
+    if (t) setTheme(t);
+    if (l) setLang(l);
   }, []);
-  const toggle = () => setTheme((t) => {
+
+  const toggleTheme = () => setTheme((t) => {
     const n = t === "dark" ? "light" : "dark";
     localStorage.setItem("theme", n);
     return n;
   });
-  return <Ctx.Provider value={{ theme, toggle }}>{children}</Ctx.Provider>;
+
+  const toggleLang = () => setLang((l) => {
+    const n = l === "ko" ? "en" : "ko";
+    localStorage.setItem("lang", n);
+    return n;
+  });
+
+  return (
+    <Ctx.Provider value={{ theme, lang, toggleTheme, toggleLang }}>
+      {children}
+    </Ctx.Provider>
+  );
 }
 
 export function useTheme() { return useContext(Ctx); }

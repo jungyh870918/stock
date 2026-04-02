@@ -544,6 +544,9 @@ video {
 .uppercase {
   text-transform: uppercase;
 }
+.italic {
+  font-style: italic;
+}
 .outline {
   outline-style: solid;
 }

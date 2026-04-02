@@ -189,9 +189,12 @@ export default function StrategyTab() {
       </Scene>
 
       <P>
-        실제로 <ExternalLink href="https://siliconanalysts.com/analysis/nvidia-ai-accelerator-market-share-2024-2026">NVIDIA의 AI 가속기 시장 점유율</ExternalLink>은 2024년 기준 수익 기준 80~90%에 달했고, 데이터센터 매출은 2022년 150억 달러에서 2024년 1,000억 달러를 넘어섰다. 그리고 이 트렌드는 <ExternalLink href="https://io-fund.com/semiconductors/data-center/nvidia-ceo-predicts-ai-spending-will-increase-300-percent-in-3-years">2028년까지 300% 성장이 예측</ExternalLink>되는 구조적 흐름이다. 뉴스가 만든 상승이 아니라, 오를 수밖에 없어서 뉴스가 따라온 것이다.
+        <ExternalLink href="https://www.etnews.com/20251201000349">전자신문 분석</ExternalLink>에 따르면 ChatGPT 출시 이후 3년 만에 NVIDIA 주가는 10배 이상 급등했다. 실제로 <ExternalLink href="https://siliconanalysts.com/analysis/nvidia-ai-accelerator-market-share-2024-2026">NVIDIA의 AI 가속기 시장 점유율</ExternalLink>은 2024년 기준 수익 기준 80~90%에 달했고, 데이터센터 매출은 2022년 150억 달러에서 2024년 1,000억 달러를 넘어섰다. 그리고 이 트렌드는 <ExternalLink href="https://io-fund.com/semiconductors/data-center/nvidia-ceo-predicts-ai-spending-will-increase-300-percent-in-3-years">2028년까지 300% 성장이 예측</ExternalLink>되는 구조적 흐름이다. 뉴스가 만든 상승이 아니라, 오를 수밖에 없어서 뉴스가 따라온 것이다.
       </P>
 
+      <P>
+        더스쿠프는 <ExternalLink href="https://www.thescoop.co.kr/news/articleView.html?idxno=58106">엔비디아 성장 비밀 특집</ExternalLink>에서 NVIDIA가 게임용 GPU 제조사에서 AI 혁명의 심장으로 올라선 과정을 상세히 분석했다. GPU의 병렬 연산 구조가 AI 학습에 최적화된 이유, 그리고 CUDA라는 소프트웨어 생태계가 경쟁자들이 따라오기 어려운 해자(moat)가 된 배경이 핵심이다.
+      </P>
       <AlertBox variant="info">
         결론: 주가를 가장 강하게 견인하는 것은 '기술 파괴력 + 산업 흐름'이다. 이 두 가지가 맞아떨어지면 뉴스는 결과로 따라오게 되어 있다.
       </AlertBox>
@@ -243,7 +246,7 @@ export default function StrategyTab() {
       </P>
 
       <Scene label="뉴스가 인식하기 전에 바뀐 것들">
-        LNG선과 컨테이너선 발주 사이클이 돌아오기 시작했고, 중국 업체들이 따라올 수 없는 고부가가치 선박(LNG 운반선)의 수요가 살아나고 있었다. <ExternalLink href="https://www.mt.co.kr/stock/2023/05/25/2023052422474498368">머니투데이 2023년 분석</ExternalLink>에 따르면 LNG 운반선은 한국 조선사들이 전체 주문의 70%를 독점한 영역이다. 뉴스가 이를 인식한 건 주가가 이미 수백 퍼센트 오른 이후였다. <ExternalLink href="https://www.thepublic.kr/news/articleView.html?idxno=292979">2025년 빅3 합산 영업이익은 6조원을 넘겼다.</ExternalLink>
+        LNG선과 컨테이너선 발주 사이클이 돌아오기 시작했고, 중국 업체들이 따라올 수 없는 고부가가치 선박(LNG 운반선)의 수요가 살아나고 있었다. <ExternalLink href="https://www.mt.co.kr/stock/2023/05/25/2023052422474498368">머니투데이 2023년 분석</ExternalLink>에 따르면 LNG 운반선은 한국 조선사들이 전체 주문의 70%를 독점한 영역이다. 뉴스가 이를 인식한 건 주가가 이미 수백 퍼센트 오른 이후였다. <ExternalLink href="https://www.thepublic.kr/news/articleView.html?idxno=292979">2025년 빅3 합산 영업이익은 6조원을 넘겼다.</ExternalLink> 뉴스톱은 <ExternalLink href="https://www.newstof.com/news/articleView.html?idxno=27451">K-조선의 LNG선 수주 사이클 분석</ExternalLink>에서 "중국에서 안 지으면 한국으로 몰릴 수밖에 없는 구조"가 국내 조선사들에게 가격 결정력 우위를 가져다주고 있다고 진단했다.
       </Scene>
 
       <H3>진입 이후 — 버티는 것이 전략이다</H3>
@@ -270,7 +273,7 @@ export default function StrategyTab() {
       </Scene>
 
       <Scene label="레버리지 ETF — TQQQ 사례">
-        TQQQ(나스닥 3배 레버리지)는 장이 -3% 빠지는 날 -9% 이상 떨어진다. 그런데 장기적으로 나스닥이 우상향한다는 전제가 살아있다면, 이 -9% 구간은 매수 기회다. 핵심은 기초 지수의 방향성이 바뀌지 않았는지를 보는 것이지, 레버리지 ETF 자체의 일별 등락에 놀라지 않는 것이다.
+        TQQQ(나스닥 3배 레버리지)는 장이 -3% 빠지는 날 -9% 이상 떨어진다. 그런데 장기적으로 나스닥이 우상향한다는 전제가 살아있다면, 이 -9% 구간은 매수 기회다. 핵심은 기초 지수의 방향성이 바뀌지 않았는지를 보는 것이지, 레버리지 ETF 자체의 일별 등락에 놀라지 않는 것이다. 실제로 <ExternalLink href="https://v.daum.net/v/GmoJ0bC2T7">블로터 넘버스 분석</ExternalLink>에 따르면 2020년 코로나 팬데믹 저점에서 TQQQ를 매수한 투자자는 연말까지 5.6배 수익을 거뒀다. <ExternalLink href="https://brunch.co.kr/@djlee118/4">한 개인 투자자의 실전 후기</ExternalLink>는 "4차 산업혁명에 대한 확신이 있다면 떨어질 때마다 분할 매수가 유효했다"고 회고한다.
       </Scene>
 
       <AlertBox variant="info">
@@ -301,7 +304,7 @@ export default function StrategyTab() {
       </P>
 
       <Scene label="30% 올랐어도 초입일 수 있다">
-        전기차 섹터가 본격적으로 주목받기 시작한 2020년 초, 테슬라는 이미 1월에 50% 가까이 올라있었다. 그 시점에 "이미 너무 올랐다"고 판단한 사람들은 이후 5~10배의 상승을 모두 놓쳤다. 구조적인 상승 트렌드가 막 인식되기 시작하는 시점이라면, 이미 올라있는 30%는 이후 올라갈 300%에 비해 아무것도 아닌 숫자다.
+        전기차 섹터가 본격적으로 주목받기 시작한 2020년 초, 테슬라는 이미 1월에 50% 가까이 올라있었다. 그 시점에 "이미 너무 올랐다"고 판단한 사람들은 이후 5~10배의 상승을 모두 놓쳤다. 구조적인 상승 트렌드가 막 인식되기 시작하는 시점이라면, 이미 올라있는 30%는 이후 올라갈 300%에 비해 아무것도 아닌 숫자다. <ExternalLink href="https://seo.goover.ai/report/202503/go-public-report-ko-a5ae1b9d-ec98-4b06-bade-08d734341110-0-0.html">테슬라 주가 분석 리포트</ExternalLink>는 "2020년 전기차 수요 증가에 따른 급등은 구조적 전환의 시작이었으며, 2021년 S&P 500 편입과 실적 개선이 상승세를 뒷받침했다"고 기록하고 있다.
       </Scene>
 
       <AlertBox variant="info">
@@ -394,6 +397,9 @@ export default function StrategyTab() {
         커뮤니티에 손절 인증이 쏟아진다. "더 떨어질 것 같아서 팔았다", "이 종목 이제 끝난 것 같다"는 글들이 넘친다. 반대로 거래량은 폭증한다. 평소보다 2~3배 이상의 거래량이 터지면서 주가는 장중에 -7~10%씩 출렁인다. 이것이 <strong style={{ color: c.accentText }}>공급이 수요를 압도하는 마지막 구간의 신호</strong>다. 여기서 가장 크게 들어갈 수 있는 사람이 결국 가장 큰 수익을 가져간다. 그 탄환을 남겨두는 게 계층형 전략의 핵심이다.
       </Scene>
 
+      <P>
+        한국경제는 <ExternalLink href="https://www.hankyung.com/article/2024040362751">나스닥 레버리지 ETF 비교 분석</ExternalLink>에서 "레버리지 상품은 추종 지수가 조정 없이 매일 우상향해야만 장기 보유 이득을 볼 수 있다"고 경고한다. 바꿔 말하면 나스닥 방향성에 대한 확신이 있을 때, 하락 구간을 분할로 매수하는 전략이 그 위험을 상쇄하는 현실적인 접근이다.
+      </P>
       <AlertBox variant="info">
         "처음부터 자금을 나눠놓고 계획대로만 들어가라 — 감정이 아니라 구간이 트리거다"
       </AlertBox>
