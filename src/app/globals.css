@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+:root {
+  --font-noto: 'Noto Sans KR', system-ui, sans-serif;
+  --font-ibm-mono: 'IBM Plex Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: #0c0f1a;
+  color: #e8eaf6;
+  font-family: var(--font-noto);
+  -webkit-font-smoothing: antialiased;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: #1e2740;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8fb3ff;
+  cursor: pointer;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8fb3ff;
+  cursor: pointer;
+  border: none;
+}
+
+@layer components {
+  .hl {
+    @apply block my-2.5 px-3.5 py-2.5 text-[13px] font-medium leading-7 text-brand-blue-light;
+    border-left: 3px solid #8fb3ff;
+    background: rgba(143, 179, 255, 0.07);
+    border-radius: 0 8px 8px 0;
+  }
+  .hl-danger {
+    border-left-color: #ff7b7b;
+    background: rgba(255, 123, 123, 0.07);
+    @apply text-brand-red-light;
+  }
+  .hl-warn {
+    border-left-color: #ffcc5c;
+    background: rgba(255, 204, 92, 0.07);
+    @apply text-brand-yellow-light;
+  }
+  .hl-green {
+    border-left-color: #6ce88a;
+    background: rgba(108, 232, 138, 0.07);
+    @apply text-brand-green-light;
+  }
+  .scene-box {
+    @apply rounded-[10px] p-4 my-2.5;
+    background: #0e1220;
+    border: 1px solid #252d50;
+  }
+  .card {
+    @apply rounded-[14px] p-5 mb-3;
+    background: #111526;
+    border: 1px solid #1e2740;
+  }
+  .mini-card {
+    @apply rounded-[10px] p-3;
+    background: #161c34;
+    border: 1px solid #1e2740;
+  }
+  .choice-btn {
+    @apply w-full text-left px-3.5 py-2.5 rounded-[9px] text-[13px] leading-relaxed cursor-pointer transition-all duration-150;
+    background: #161c34;
+    border: 1px solid #1e2740;
+    color: #8a93b8;
+  }
+  .choice-btn:hover {
+    border-color: #8fb3ff;
+    color: #c8d4ff;
+    background: #19213d;
+  }
+  .choice-btn-selected {
+    border-color: #8fb3ff !important;
+    background: rgba(143, 179, 255, 0.12) !important;
+    color: #c8d4ff !important;
+  }
+  .choice-btn-warn {
+    border-color: #ffcc5c !important;
+    background: rgba(255, 204, 92, 0.1) !important;
+    color: #ffe5a0 !important;
+  }
+  .choice-btn-danger {
+    border-color: #ff7b7b !important;
+    background: rgba(255, 123, 123, 0.1) !important;
+    color: #ffb3b3 !important;
+  }
+  .db-btn {
+    @apply px-5 py-2.5 rounded-lg text-[13px] font-medium cursor-pointer transition-all duration-200;
+    border: 1px solid #2a3560;
+    background: transparent;
+    color: #8a93b8;
+  }
+  .db-btn:hover {
+    background: #161c34;
+    color: #c8d4ff;
+  }
+  .db-btn-primary {
+    background: #8fb3ff !important;
+    color: #0c0f1a !important;
+    border-color: #8fb3ff !important;
+  }
+  .db-btn-primary:hover {
+    background: #b3cfff !important;
+  }
+  .tag-blue {
+    @apply inline-block px-2 py-0.5 rounded text-[11px] font-medium mx-0.5;
+    background: rgba(143, 179, 255, 0.15);
+    color: #8fb3ff;
+  }
+  .tag-red {
+    @apply inline-block px-2 py-0.5 rounded text-[11px] font-medium mx-0.5;
+    background: rgba(255, 123, 123, 0.15);
+    color: #ff9f9f;
+  }
+  .tag-green {
+    @apply inline-block px-2 py-0.5 rounded text-[11px] font-medium mx-0.5;
+    background: rgba(108, 232, 138, 0.15);
+    color: #7bf09a;
+  }
+}
