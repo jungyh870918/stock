@@ -24,7 +24,7 @@ interface TDBar {
 
 export async function fetchCandlesTwelveData(
   symbol: string,
-  outputsize = 150
+  outputsize = 5000   // 무료 플랜 최대치 — 약 13년치 일봉
 ): Promise<CandlePoint[]> {
   if (!KEY) return [];
 
@@ -34,7 +34,7 @@ export async function fetchCandlesTwelveData(
   url.searchParams.set("outputsize", String(outputsize));
   url.searchParams.set("apikey", KEY);
 
-  const res = await fetch(url.toString(), { next: { revalidate: 3600 } });
+  const res = await fetch(url.toString(), { cache: 'no-store' });
   if (!res.ok) return [];
 
   const json = await res.json();

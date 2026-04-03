@@ -4,9 +4,10 @@ import StrategyTab  from "./components/StrategyTab";
 import DashboardTab from "./components/DashboardTab";
 import StockPanel   from "./components/StockPanel";
 import LearnTab     from "./components/LearnTab";
+import JournalTab   from "./components/JournalTab";
 import { useTheme, THEME } from "./context/ThemeContext";
 
-type TabId = "strategy" | "dashboard" | "stock" | "learn";
+type TabId = "strategy" | "dashboard" | "stock" | "learn" | "journal";
 
 const TAB_LABELS = {
   ko: [
@@ -14,12 +15,14 @@ const TAB_LABELS = {
     { id: "dashboard", label: "⚡ 투자 판단 도구" },
     { id: "stock",     label: "📈 실시간 시세" },
     { id: "learn",     label: "📚 추가 학습" },
+    { id: "journal",   label: "📒 투자 일지" },
   ],
   en: [
     { id: "strategy",  label: "📋 Strategy" },
     { id: "dashboard", label: "⚡ Decision Tool" },
     { id: "stock",     label: "📈 Live Quotes" },
     { id: "learn",     label: "📚 Resources" },
+    { id: "journal",   label: "📒 Journal" },
   ],
 } as const;
 
@@ -33,7 +36,6 @@ export default function Home() {
     <div style={{ minHeight: "100vh", background: c.bg, color: c.text, transition: "background 0.25s, color 0.25s" }}>
       <nav className="flex sticky top-0 z-50 overflow-x-auto"
         style={{ background: c.bg, borderBottom: `1px solid ${c.line}`, paddingLeft: "16px" }}>
-
         {tabs.map((tab) => {
           const isActive = activeTab === (tab.id as TabId);
           return (
@@ -47,36 +49,21 @@ export default function Home() {
             }}>{tab.label}</button>
           );
         })}
-
-        {/* 우측 버튼 그룹 */}
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "6px", marginRight: "12px", flexShrink: 0 }}>
-          {/* 언어 전환 */}
-          <button onClick={toggleLang} style={{
-            padding: "5px 11px", borderRadius: "8px",
-            border: `1px solid ${c.line}`, background: c.panel2,
-            color: c.textDim, cursor: "pointer", fontSize: "12px",
-            fontFamily: "'IBM Plex Mono', monospace", transition: "all 0.2s",
-            letterSpacing: "0.05em",
-          }}>
+          <button onClick={toggleLang} style={{ padding: "5px 11px", borderRadius: "8px", border: `1px solid ${c.line}`, background: c.panel2, color: c.textDim, cursor: "pointer", fontSize: "12px", fontFamily: "'IBM Plex Mono',monospace", transition: "all 0.2s", letterSpacing: "0.05em" }}>
             {lang === "ko" ? "EN" : "한국어"}
           </button>
-          {/* 테마 전환 */}
-          <button onClick={toggleTheme} style={{
-            padding: "5px 11px", borderRadius: "8px",
-            border: `1px solid ${c.line}`, background: c.panel2,
-            color: c.textDim, cursor: "pointer", fontSize: "12px",
-            fontFamily: "inherit", transition: "all 0.2s",
-          }}>
+          <button onClick={toggleTheme} style={{ padding: "5px 11px", borderRadius: "8px", border: `1px solid ${c.line}`, background: c.panel2, color: c.textDim, cursor: "pointer", fontSize: "12px", fontFamily: "inherit", transition: "all 0.2s" }}>
             {theme === "dark" ? "☀" : "☾"}
           </button>
         </div>
       </nav>
-
       <main style={{ padding: "24px 20px 80px" }}>
         {activeTab === "strategy"  && <StrategyTab />}
         {activeTab === "dashboard" && <DashboardTab />}
         {activeTab === "stock"     && <StockPanel />}
         {activeTab === "learn"     && <LearnTab />}
+        {activeTab === "journal"   && <JournalTab />}
       </main>
     </div>
   );

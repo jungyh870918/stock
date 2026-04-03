@@ -18,7 +18,7 @@ async function get<T>(path: string, params: Record<string, string> = {}): Promis
   const url = new URL(`${BASE}${path}`);
   url.searchParams.set("token", KEY);
   Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
-  const res = await fetch(url.toString(), { next: { revalidate: 60 } });
+  const res = await fetch(url.toString(), { cache: 'no-store' });
   if (!res.ok) throw new Error(`Finnhub ${path} → ${res.status}`);
   return res.json() as Promise<T>;
 }
@@ -33,7 +33,7 @@ function daysAgo(n: number) { return unixNow() - 60 * 60 * 24 * n; }
 async function fetchCandles(symbol: string): Promise<CandlePoint[]> {
   // 1순위: Twelve Data (무료 800 calls/day)
   if (isTwelveDataEnabled()) {
-    const candles = await fetchCandlesTwelveData(symbol, 150);
+    const candles = await fetchCandlesTwelveData(symbol);
     if (candles.length > 0) return candles;
   }
 
@@ -91,13 +91,13 @@ export async function fetchStockData(symbol: string): Promise<StockData> {
     industry: p?.finnhubIndustry ?? "",
     logo: p?.logo ?? "",
     quote: {
-      price: q.c ?? null,
-      change: q.d ?? null,
+      price:     (q.c  && q.c  !== 0) ? q.c  : null,
+      change:    q.d  ?? null,
       changePct: q.dp ?? null,
-      high: q.h ?? null,
-      low: q.l ?? null,
-      open: q.o ?? null,
-      prevClose: q.pc ?? null,
+      high:      (q.h  && q.h  !== 0) ? q.h  : null,
+      low:       (q.l  && q.l  !== 0) ? q.l  : null,
+      open:      (q.o  && q.o  !== 0) ? q.o  : null,
+      prevClose: (q.pc && q.pc !== 0) ? q.pc : null,
       updatedAt: q.t ?? null,
     },
     candles: candlePoints,

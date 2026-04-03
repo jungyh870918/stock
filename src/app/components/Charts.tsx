@@ -37,7 +37,8 @@ function whenSized(el: HTMLDivElement, cb: (w: number, h: number) => () => void)
    1. 캔들스틱 + 거래량 (v5 API)
 ──────────────────────────────────── */
 export function CandleChart({ candles }: { candles: CandlePoint[] }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref    = useRef<HTMLDivElement>(null);
+  const ctlRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -53,8 +54,17 @@ export function CandleChart({ candles }: { candles: CandlePoint[] }) {
         chart = createChart(el, {
           width: w, height: h,
           layout: LAYOUT, grid: GRID, crosshair: CROSSHAIR,
-          timeScale: TIME_SCALE,
+          timeScale: {
+            ...TIME_SCALE,
+            // 줌/스크롤 완전 활성화
+            rightOffset: 5,
+            barSpacing: 8,
+            minBarSpacing: 1,
+          },
           rightPriceScale: { borderColor: "#1e2740" },
+          // 마우스 휠 줌, 드래그 스크롤 모두 허용
+          handleScroll: { mouseWheel: true, pressedMouseMove: true, horzTouchDrag: true, vertTouchDrag: false },
+          handleScale:  { mouseWheel: true, pinch: true, axisPressedMouseMove: true },
         });
 
         /* 캔들스틱 */
@@ -82,7 +92,34 @@ export function CandleChart({ candles }: { candles: CandlePoint[] }) {
           color: c.close >= c.open ? "rgba(108,232,138,0.4)" : "rgba(255,123,123,0.4)",
         })));
 
-        chart.timeScale().fitContent();
+        /* 기본 뷰: 최근 1년 (약 252 거래일) — 데이터가 1년 미만이면 전체 표시 */
+        const oneYearBars = 252;
+        if (candles.length > oneYearBars) {
+          const from = candles[candles.length - oneYearBars].time;
+          const to   = candles[candles.length - 1].time;
+          chart.timeScale().setVisibleRange({ from, to });
+        } else {
+          chart.timeScale().fitContent();
+        }
+
+        /* 버튼 이벤트: 전체 / 1년 / 6개월 / 3개월 */
+        const ctl = ctlRef.current;
+        if (ctl) {
+          const handler = (e: Event) => {
+            const btn = (e.target as HTMLElement).closest("button");
+            if (!btn || !chart) return;
+            const range = btn.dataset.range;
+            if (range === "all") { chart.timeScale().fitContent(); return; }
+            const bars = parseInt(range ?? "252");
+            const available = candles.length;
+            const idx = Math.max(0, available - bars);
+            chart.timeScale().setVisibleRange({
+              from: candles[idx].time,
+              to:   candles[available - 1].time,
+            });
+          };
+          ctl.addEventListener("click", handler);
+        }
 
         sizeRo = new ResizeObserver(() => { chart?.applyOptions({ width: el.clientWidth }); });
         sizeRo.observe(el);
@@ -92,7 +129,36 @@ export function CandleChart({ candles }: { candles: CandlePoint[] }) {
     });
   }, [candles]);
 
-  return <div ref={ref} style={{ width: "100%", height: "100%" }} />;
+  const btnStyle = (active?: boolean): React.CSSProperties => ({
+    padding: "3px 9px", fontSize: "11px", borderRadius: "5px", cursor: "pointer",
+    border: "1px solid #1e2740", fontFamily: "'IBM Plex Mono',monospace",
+    background: active ? "#8fb3ff22" : "transparent",
+    color: active ? "#8fb3ff" : "#5a6490",
+    transition: "all 0.15s",
+  });
+
+  return (
+    <div style={{ width: "100%", height: "100%", position: "relative", display: "flex", flexDirection: "column" }}>
+      {/* 기간 버튼 */}
+      <div ref={ctlRef} style={{ display: "flex", gap: "4px", padding: "0 2px 6px", flexShrink: 0 }}>
+        {[
+          { label: "3M",  range: "63"  },
+          { label: "6M",  range: "126" },
+          { label: "1Y",  range: "252" },
+          { label: "2Y",  range: "504" },
+          { label: "5Y",  range: "1260"},
+          { label: "전체", range: "all" },
+        ].map(({ label, range }) => (
+          <button key={range} data-range={range} style={btnStyle(range === "252")}>{label}</button>
+        ))}
+        <span style={{ marginLeft: "auto", fontSize: "10px", color: "#4a5580", alignSelf: "center", fontFamily: "'IBM Plex Mono',monospace" }}>
+          {candles.length}일 · 마우스 휠로 줌
+        </span>
+      </div>
+      {/* 차트 */}
+      <div ref={ref} style={{ flex: 1, minHeight: 0 }} />
+    </div>
+  );
 }
 
 /* ────────────────────────────────────

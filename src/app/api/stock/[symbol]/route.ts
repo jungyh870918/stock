@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { fetchStockData } from "@/app/lib/finnhub";
 import type { ApiError } from "@/app/lib/finnhub.types";
 
+export const dynamic = "force-dynamic"; // Next.js 캐시 완전 비활성화
+
 export async function GET(
   _req: NextRequest,
   { params }: { params: { symbol: string } }
@@ -19,7 +21,9 @@ export async function GET(
     const data = await fetchStockData(symbol);
     return NextResponse.json(data, {
       headers: {
-        "Cache-Control": "public, s-maxage=60, stale-while-revalidate=30",
+        // 브라우저·프록시 캐시 완전 비활성화
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+        "Pragma": "no-cache",
       },
     });
   } catch (err) {
